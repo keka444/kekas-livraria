@@ -6,10 +6,109 @@
     <title>Meus Livros Favoritos</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Resetando a margem e padding do body para remover espaços */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8bbd0;
+            color: #6a1b9a;
+            margin: 0; /* Remove a margem padrão do body */
+            padding: 0; /* Remove o padding padrão do body */
+        }
+
+        /* Estilizando o título com bordas tocando em cima e dos lados */
+        .livros h1 {
+            background-color: #9c27b0; /* Cor de fundo única para o título */
+            color: white;
+            padding: 20px 40px; /* Espaçamento dentro da caixa */
+            text-align: center;
+            position: absolute; /* Faz o título ficar fixo no topo */
+            top: 0; /* Fixa o título no topo da página */
+            left: 0; /* Alinha o título com a borda esquerda */
+            width: 100%; /* Faz a largura ocupar toda a tela */
+            box-sizing: border-box; /* Garante que o padding não altere a largura */
+            margin: 0; /* Remove qualquer margem */
+            border-top: 15px solid #9c27b0; /* Borda superior grossa */
+        }
+
+        /* Borda lateral para o título */
+        .livros h1::before, .livros h1::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 15px; /* Largura da borda lateral */
+            background-color: #9c27b0; /* Cor da borda lateral */
+        }
+
+        .livros h1::before {
+            left: 0; /* Borda à esquerda */
+        }
+
+        .livros h1::after {
+            right: 0; /* Borda à direita */
+        }
+
+        /* Link com fundo colorido compacto */
+        .livros a {
+            display: inline-block;
+            background-color: #9c27b0; /* Cor de fundo para o link */
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            margin-top: 1px; /* Espaçamento abaixo do título */
+            margin-bottom: 30px; 
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Efeito hover para o link */
+        .livros a:hover {
+            background-color: #7b1fa2; /* Cor de fundo mais escura */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilo do container de feedback */
+        #feedback-container {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #feedback {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-bottom: 10px;
+            resize: vertical;
+        }
+
+        #enviarFeedback {
+            background-color: #9c27b0; /* Cor de fundo igual ao design original */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #enviarFeedback:hover {
+            background-color: #7b1fa2; /* Cor de fundo mais escura no hover */
+        }
+    </style>
 </head>
 <body>
     <div class="livros">
-        <!-- Título com a borda grossa e fundo colorido -->
         <h1>Indicações de Livros para você Comprar</h1>
        <br>
        <br>
@@ -21,7 +120,28 @@
 
         <!-- Link para voltar à página inicial -->
         <a href="index.html">Voltar para a página inicial</a>
+
+        <!-- Feedback -->
+        <div id="feedback-container">
+            <h2>Deixe seu feedback!</h2>
+            <textarea id="feedback" placeholder="Escreva seu feedback aqui..."></textarea><br>
+            <button id="enviarFeedback">Enviar Feedback</button>
+        </div>
     </div>
+
+    <script>
+        document.getElementById("enviarFeedback").addEventListener("click", function() {
+            var feedback = document.getElementById("feedback").value;
+            if (feedback) {
+                // Formatar o feedback para ser enviado via WhatsApp
+                var url = `https://wa.me/5583998255064?text=${encodeURIComponent(feedback)}`;
+                // Redirecionar o usuário para o WhatsApp
+                window.open(url, '_blank');
+            } else {
+                alert("Por favor, escreva seu feedback antes de enviar!");
+            }
+        });
+    </script>
 </body>
 </html>
 
