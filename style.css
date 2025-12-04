@@ -41,8 +41,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f8bbd0;
     color: #6a1b9a;
-    margin: 0; /* Remove a margem padrão do body */
-    padding: 0; /* Remove o padding padrão do body */
+    margin: 0; 
+    padding: 0; 
 }
 
 /* Estilizando o título com bordas tocando em cima e dos lados */
@@ -66,8 +66,8 @@ body {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 15px; /* Largura da borda lateral */
-    background-color: #9c27b0; /* Cor da borda lateral */
+    width: 15px; 
+    background-color: #9c27b0; 
 }
 
 .livros h1::before {
@@ -187,3 +187,53 @@ body {
     width: 100%;
 }
 
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+
+    /* Títulos menores */
+    h1, h2, h3 {
+        font-size: 1.8em;
+    }
+
+    /* Itens de links empilham verticalmente */
+    .links-imagens {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .link-item {
+        max-width: 100%;
+    }
+
+    /* Botões ocupam largura total */
+    .link-texto, .livros a {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    /* Rodapé ajustado para não sobrepor conteúdo */
+    .footer-com-borda {
+        position: relative;
+    }
+
+    /* Imagens de conteúdo se ajustam à tela */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Seções com margem reduzida */
+    section, .descricao-livraria {
+        margin: 10px;
+    }
+}
