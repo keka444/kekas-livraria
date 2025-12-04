@@ -189,16 +189,9 @@ body {
 
 
 
-
-
-
-
-
-
-
 @media (max-width: 600px) {
 
-    /* Títulos menores */
+    /* Títulos menores para rodar bem em mobile */
     h1, h2, h3 {
         font-size: 1.8em;
     }
